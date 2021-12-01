@@ -109,20 +109,44 @@ Anywhere                   DENY        157.240.198.36
 >
 > In my case I have 2 nodes named --> minikube & minikube-m02
 >
-> Open two terminals or 2 tabs in terminals side by side to make process easy.
+> Open two terminals or 2 tabs in terminal side by side to make process easy.
 
 | Terminal 1 | Terminal 2 |
 |--|--|
-| ```minikube ssh``` | ```minikube ssh -n minikube-m02``` |
+| ```$  minikube ssh``` | ```$  minikube ssh -n minikube-m02``` |
 
 
 2. Install the NFS-Common Package for client
 > Run these commands on both nodes.
+
 ```bash
 sudo apt update
 sudo apt install nfs-common
 ```
+3. Check NFS working on both nodes
+> Command is sudo mount <HOST_MACHINE_IPADDRESS>:/tmp/nfs/kubedata /mnt
+>
+> My Host Machine IPAddress is 192.168.1.8
+>
+> check your IPAddress
+>
+> $ ip a
+```bash
+sudo mount 192.168.1.8:/tmp/nfs/kubedata /mnt
+ls /mnt/
+```
 
+Output will look like this
+
+```text
+pv0  pv1  pv2
+```
+
+4. Unmount the volumes (optional)
+
+```bash
+sudo umount /mnt/
+```
 
 
 
