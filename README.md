@@ -116,12 +116,8 @@ Anywhere                   DENY        157.240.198.36
 | ```minikube ssh``` | ```minikube ssh -n minikube-m02``` |
 
 
-```
-minikube
-```
-
 2. Install the NFS-Common Package for client
-
+> Run these commands on both nodes.
 ```bash
 sudo apt update
 sudo apt install nfs-common
