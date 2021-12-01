@@ -89,4 +89,45 @@ sudo ufw allow from 192.168.49.0/24 to any port nfs
 sudo ufw enable
 sudo ufw status
 ```
+
+Output will look like this:
+
+```text
+To                         Action      From
+--                         ------      ----
+Anywhere                   DENY        157.240.198.35            
+Anywhere                   DENY        157.240.198.36            
+157.240.198.35             DENY        Anywhere                  
+2049                       ALLOW       192.168.49.0/24           
+```
+
+
 **On client Machine**
+
+1. SSH into minikube nodes
+> NOTE
+>
+> In my case I have 2 nodes named --> minikube & minikube-m02
+>
+> Open two terminals or 2 tabs in terminals side by side to make process easy.
+
+| Terminal 1 | Terminal 2 |
+|--|--|
+| ```minikube ssh``` | ```minikube ssh -n minikube-m02``` |
+
+
+```
+minikube
+```
+
+2. Install the NFS-Common Package for client
+
+```bash
+sudo apt update
+sudo apt install nfs-common
+```
+
+
+
+
+
