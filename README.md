@@ -7,7 +7,7 @@
 > Note: In this doc I'm using 2 minikube nodes provisioned on a Ubuntu 20.04
 
 
-**On Host Machine**
+### **On Host Machine**
 
 1. NFS host server utils
 
@@ -101,8 +101,10 @@ Anywhere                   DENY        157.240.198.36
 2049                       ALLOW       192.168.49.0/24           
 ```
 
+---
+---
 
-**On client Machine**
+### **On client Machine**
 
 1. SSH into minikube nodes
 > NOTE
