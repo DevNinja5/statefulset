@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-sts
+
+spec:
+  serviceName: "headless-service-statfulset"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-sts-demo
+  template:
+    metadata:
+      labels:
+        app: nginx-sts-demo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          volumeMounts:
+          - name: web
+            mountPath: /var/www/
+      
+  volumeClaimTemplates:
+  - metadata:
+      name: web
+    spec:
+      storageClassName: manual
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          storage: 100Mi
+
