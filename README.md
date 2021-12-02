@@ -82,7 +82,7 @@ sudo systemctl restart nfs-kernel-server
 
 6. Allow NFS Access through the Firewall
 > My minikube node network gateway is 192.168.49.0/24
-
+> 
 > check your gateway $minikube ip  : It should look like 192.168.49.2 then gateway is 192.168.49.0/24
 ```bash
 sudo ufw allow from 192.168.49.0/24 to any port nfs
